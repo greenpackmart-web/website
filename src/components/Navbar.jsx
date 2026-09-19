@@ -17,7 +17,7 @@ function Navbar() {
     <header className="sticky top-0 z-50 border-b border-mist/60 bg-cream/90 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link to="/" onClick={() => setOpen(false)}>
-          <img src={Logo} alt={`${site.name} logo`} className="h-10 w-10" />
+          <img src={Logo} alt={`${site.name} logo`} className="h-9 w-auto" />
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">

@@ -33,12 +33,12 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto hidden h-80 w-80 sm:block">
+        <div className="relative mx-auto hidden h-72 w-[24rem] sm:block">
           <div className="absolute inset-0 rounded-full bg-tint blur-3xl" />
-          <div className="absolute right-4 top-10 h-40 w-40 rounded-full bg-mist/60 blur-3xl" />
+          <div className="absolute right-6 top-8 h-40 w-40 rounded-full bg-mist/60 blur-3xl" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex h-56 w-56 items-center justify-center rounded-[2.5rem] bg-white shadow-xl shadow-forest/10">
-              <img src={Logo} alt="GreenPackMart logo" className="h-36 w-36" />
+            <div className="flex h-36 w-72 items-center justify-center rounded-[2.5rem] bg-white px-8 shadow-xl shadow-forest/10">
+              <img src={Logo} alt="GreenPackMart logo" className="h-20 w-auto" />
             </div>
           </div>
           <div className="absolute left-0 top-6 rounded-full border border-mist bg-white px-4 py-2 text-xs font-semibold text-forest shadow-md">

@@ -8,7 +8,7 @@ function Footer() {
     <footer className="bg-pine text-cream">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 md:grid-cols-4">
         <div>
-          <img src={Logo} alt={`${site.name} logo`} className="h-12 w-12" />
+          <img src={Logo} alt={`${site.name} logo`} className="h-12 w-auto" />
           <p className="mt-4 text-sm leading-relaxed text-cream/70">
             {site.tagline}.
           </p>

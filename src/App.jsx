@@ -17,7 +17,7 @@ import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/website">
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
