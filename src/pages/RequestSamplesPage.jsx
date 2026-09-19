@@ -4,6 +4,7 @@ import TextField from '../components/form/TextField'
 import TextAreaField from '../components/form/TextAreaField'
 import CheckboxGroup from '../components/form/CheckboxGroup'
 import EnquiryFallback from '../components/form/EnquiryFallback'
+import MailtoSuccess from '../components/form/MailtoSuccess'
 import { productCategories } from '../data/products'
 import { site } from '../data/site'
 
@@ -15,7 +16,6 @@ const initialFields = {
   address: '',
   interests: [],
   message: '',
-  website: '',
 }
 
 function validate(fields) {
@@ -36,8 +36,8 @@ function validate(fields) {
   return errors
 }
 
-function buildMailto(fields) {
-  const lines = [
+function buildMessage(fields) {
+  return [
     `Name: ${fields.name}`,
     fields.company && `Company: ${fields.company}`,
     `Email: ${fields.email}`,
@@ -45,18 +45,21 @@ function buildMailto(fields) {
     `Shipping address: ${fields.address}`,
     `Categories of interest: ${fields.interests.join(', ')}`,
     fields.message && `Message: ${fields.message}`,
-  ].filter(Boolean)
+  ]
+    .filter(Boolean)
+    .join('\n')
+}
 
+function buildMailto(fields) {
   return `mailto:${site.email}?subject=${encodeURIComponent(
     'Sample request'
-  )}&body=${encodeURIComponent(lines.join('\n'))}`
+  )}&body=${encodeURIComponent(buildMessage(fields))}`
 }
 
 function RequestSamplesPage() {
   const [fields, setFields] = useState(initialFields)
   const [errors, setErrors] = useState({})
-  const [status, setStatus] = useState('idle')
-  const [mailtoHref, setMailtoHref] = useState(null)
+  const [result, setResult] = useState(null)
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -67,27 +70,14 @@ function RequestSamplesPage() {
     setFields((previous) => ({ ...previous, interests }))
   }
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault()
     const nextErrors = validate(fields)
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) return
 
-    setStatus('submitting')
-    try {
-      const response = await fetch('/api/sample-request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(fields),
-      })
-      if (!response.ok) throw new Error(`Request failed: ${response.status}`)
-      setStatus('success')
-    } catch {
-      const href = buildMailto(fields)
-      window.location.href = href
-      setMailtoHref(href)
-      setStatus('error')
-    }
+    window.location.href = buildMailto(fields)
+    setResult({ href: buildMailto(fields), text: buildMessage(fields) })
   }
 
   const categoryNames = productCategories.map((category) => category.name)
@@ -102,65 +92,19 @@ function RequestSamplesPage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-          {status === 'success' && (
-            <div className="rounded-3xl border border-mist bg-cream p-8 text-center">
-              <h2 className="font-heading text-2xl font-extrabold text-forest">
-                Thank you — your sample request is with us
-              </h2>
-              <p className="mx-auto mt-3 max-w-md text-sm text-pine/70">
-                We reply with sample kit details within one business day.
-              </p>
-              <button
-                type="button"
-                onClick={() => {
-                  setFields(initialFields)
-                  setStatus('idle')
-                }}
-                className="mt-6 text-sm font-medium text-sage transition hover:text-forest"
-              >
-                Submit another request
-              </button>
-            </div>
-          )}
-
-          {status === 'error' && (
-            <div className="rounded-3xl border border-mist bg-cream p-8 text-center">
-              <h2 className="font-heading text-2xl font-extrabold text-forest">
-                We couldn't send it automatically
-              </h2>
-              <p className="mx-auto mt-3 max-w-md text-sm text-pine/70">
-                Your email app should have opened with everything pre-filled —
-                just press send there. If it didn't:
-              </p>
-              <a
-                href={mailtoHref}
-                className="mt-6 inline-block rounded-full bg-leaf px-8 py-3 font-heading font-semibold text-white shadow-lg shadow-leaf/30 transition hover:bg-forest"
-              >
-                Open the pre-filled email
-              </a>
-              <button
-                type="button"
-                onClick={() => setStatus('idle')}
-                className="mt-4 block w-full text-sm font-medium text-sage transition hover:text-forest"
-              >
-                Try the form again
-              </button>
-            </div>
-          )}
-
-          {(status === 'idle' || status === 'submitting') && (
+          {result ? (
+            <MailtoSuccess
+              mailtoHref={result.href}
+              messageText={result.text}
+              onReset={() => {
+                setFields(initialFields)
+                setResult(null)
+              }}
+              resetLabel="Fill the form again"
+            />
+          ) : (
             <>
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                <input
-                  type="text"
-                  name="website"
-                  value={fields.website}
-                  onChange={handleChange}
-                  tabIndex={-1}
-                  autoComplete="off"
-                  aria-hidden="true"
-                  className="hidden"
-                />
                 <div className="grid gap-5 sm:grid-cols-2">
                   <TextField
                     label="Your name"
@@ -219,10 +163,9 @@ function RequestSamplesPage() {
                 />
                 <button
                   type="submit"
-                  disabled={status === 'submitting'}
-                  className="w-full rounded-full bg-leaf px-8 py-3 font-heading font-semibold text-white shadow-lg shadow-leaf/30 transition hover:bg-forest disabled:opacity-60"
+                  className="w-full rounded-full bg-leaf px-8 py-3 font-heading font-semibold text-white shadow-lg shadow-leaf/30 transition hover:bg-forest"
                 >
-                  {status === 'submitting' ? 'Sending…' : 'Request my samples'}
+                  Request my samples
                 </button>
               </form>
               <div className="mt-8">
