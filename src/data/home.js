@@ -31,14 +31,3 @@ export const valueProps = [
     text: 'Your logo on our products — private-label options for your market.',
   },
 ]
-
-export const industriesServed = [
-  'Hotels & Resorts',
-  'Restaurants & Cafes',
-  'Catering',
-  'Airlines',
-  'Corporate Canteens',
-  'Event Planners',
-  'Retail Stores',
-  'Grocery & Delivery',
-]

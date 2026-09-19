@@ -3,7 +3,7 @@ import StatsBar from '../components/home/StatsBar'
 import ProductCategories from '../components/home/ProductCategories'
 import WhyUs from '../components/home/WhyUs'
 import IndustriesStrip from '../components/home/IndustriesStrip'
-import CtaBand from '../components/home/CtaBand'
+import CtaBand from '../components/CtaBand'
 
 function HomePage() {
   return (

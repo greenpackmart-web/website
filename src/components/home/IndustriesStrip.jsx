@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { industriesServed } from '../../data/home'
+import { industries } from '../../data/industries'
 import SectionHeading from '../SectionHeading'
 
 function IndustriesStrip() {
@@ -12,12 +12,12 @@ function IndustriesStrip() {
         />
 
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          {industriesServed.map((industry) => (
+          {industries.map((industry) => (
             <span
-              key={industry}
+              key={industry.name}
               className="rounded-full border border-mist bg-cream px-5 py-2 text-sm font-medium text-forest"
             >
-              {industry}
+              {industry.name}
             </span>
           ))}
         </div>
