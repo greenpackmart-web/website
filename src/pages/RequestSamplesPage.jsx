@@ -15,6 +15,7 @@ const initialFields = {
   address: '',
   interests: [],
   message: '',
+  website: '',
 }
 
 function validate(fields) {
@@ -54,6 +55,7 @@ function buildMailto(fields) {
 function RequestSamplesPage() {
   const [fields, setFields] = useState(initialFields)
   const [errors, setErrors] = useState({})
+  const [status, setStatus] = useState('idle')
   const [mailtoHref, setMailtoHref] = useState(null)
 
   function handleChange(event) {
@@ -65,15 +67,27 @@ function RequestSamplesPage() {
     setFields((previous) => ({ ...previous, interests }))
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
     const nextErrors = validate(fields)
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) return
 
-    const href = buildMailto(fields)
-    window.location.href = href
-    setMailtoHref(href)
+    setStatus('submitting')
+    try {
+      const response = await fetch('/api/sample-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fields),
+      })
+      if (!response.ok) throw new Error(`Request failed: ${response.status}`)
+      setStatus('success')
+    } catch {
+      const href = buildMailto(fields)
+      window.location.href = href
+      setMailtoHref(href)
+      setStatus('error')
+    }
   }
 
   const categoryNames = productCategories.map((category) => category.name)
@@ -88,32 +102,65 @@ function RequestSamplesPage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-          {mailtoHref ? (
+          {status === 'success' && (
             <div className="rounded-3xl border border-mist bg-cream p-8 text-center">
               <h2 className="font-heading text-2xl font-extrabold text-forest">
-                Your email app should have opened
+                Thank you — your sample request is with us
               </h2>
               <p className="mx-auto mt-3 max-w-md text-sm text-pine/70">
-                Your sample request is pre-filled — just press send. Didn't
-                open?
+                We reply with sample kit details within one business day.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setFields(initialFields)
+                  setStatus('idle')
+                }}
+                className="mt-6 text-sm font-medium text-sage transition hover:text-forest"
+              >
+                Submit another request
+              </button>
+            </div>
+          )}
+
+          {status === 'error' && (
+            <div className="rounded-3xl border border-mist bg-cream p-8 text-center">
+              <h2 className="font-heading text-2xl font-extrabold text-forest">
+                We couldn't send it automatically
+              </h2>
+              <p className="mx-auto mt-3 max-w-md text-sm text-pine/70">
+                Your email app should have opened with everything pre-filled —
+                just press send there. If it didn't:
               </p>
               <a
                 href={mailtoHref}
                 className="mt-6 inline-block rounded-full bg-leaf px-8 py-3 font-heading font-semibold text-white shadow-lg shadow-leaf/30 transition hover:bg-forest"
               >
-                Open the email again
+                Open the pre-filled email
               </a>
               <button
                 type="button"
-                onClick={() => setMailtoHref(null)}
+                onClick={() => setStatus('idle')}
                 className="mt-4 block w-full text-sm font-medium text-sage transition hover:text-forest"
               >
-                Fill the form again
+                Try the form again
               </button>
             </div>
-          ) : (
+          )}
+
+          {(status === 'idle' || status === 'submitting') && (
             <>
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                <input
+                  type="text"
+                  name="website"
+                  value={fields.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <div className="grid gap-5 sm:grid-cols-2">
                   <TextField
                     label="Your name"
@@ -172,9 +219,10 @@ function RequestSamplesPage() {
                 />
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-leaf px-8 py-3 font-heading font-semibold text-white shadow-lg shadow-leaf/30 transition hover:bg-forest"
+                  disabled={status === 'submitting'}
+                  className="w-full rounded-full bg-leaf px-8 py-3 font-heading font-semibold text-white shadow-lg shadow-leaf/30 transition hover:bg-forest disabled:opacity-60"
                 >
-                  Request my samples
+                  {status === 'submitting' ? 'Sending…' : 'Request my samples'}
                 </button>
               </form>
               <div className="mt-8">

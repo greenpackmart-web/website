@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
+import { vi, beforeEach, afterEach } from 'vitest'
 import GetQuotePage from './GetQuotePage'
 
 function renderPage() {
@@ -19,6 +20,14 @@ async function fillValidForm(user) {
   await user.selectOptions(screen.getByLabelText(/product category/i), 'Bowls')
   await user.type(screen.getByLabelText(/estimated quantity/i), '25000')
 }
+
+beforeEach(() => {
+  vi.stubGlobal('fetch', vi.fn(() => Promise.resolve({ ok: true })))
+})
+
+afterEach(() => {
+  vi.unstubAllGlobals()
+})
 
 describe('GetQuotePage', () => {
   test('shows validation errors when submitted empty', async () => {
@@ -51,7 +60,7 @@ describe('GetQuotePage', () => {
     expect(screen.getByText('Enter a valid email address')).toBeInTheDocument()
   })
 
-  test('a valid submit shows the success screen with a pre-filled email', async () => {
+  test('sends the enquiry to the API and shows the success screen', async () => {
     const user = userEvent.setup()
     renderPage()
 
@@ -59,17 +68,31 @@ describe('GetQuotePage', () => {
     await user.click(screen.getByRole('button', { name: /get my quote/i }))
 
     expect(
-      screen.getByText('Your email app should have opened')
+      screen.getByText('Thank you — your enquiry is with us')
     ).toBeInTheDocument()
+    expect(fetch).toHaveBeenCalledWith(
+      '/api/enquiry',
+      expect.objectContaining({ method: 'POST' })
+    )
+  })
 
-    const reopen = screen.getByRole('link', { name: /open the email again/i })
+  test('falls back to a pre-filled email when the API fails', async () => {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('network'))))
+    const user = userEvent.setup()
+    renderPage()
+
+    await fillValidForm(user)
+    await user.click(screen.getByRole('button', { name: /get my quote/i }))
+
+    expect(
+      screen.getByText("We couldn't send it automatically")
+    ).toBeInTheDocument()
+    const reopen = screen.getByRole('link', {
+      name: /open the pre-filled email/i,
+    })
     expect(reopen).toHaveAttribute(
       'href',
       expect.stringContaining('maria%40buyfood.com')
-    )
-    expect(reopen).toHaveAttribute(
-      'href',
-      expect.stringContaining('Spain')
     )
     expect(reopen).toHaveAttribute(
       'href',
