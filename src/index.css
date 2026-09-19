@@ -16,3 +16,31 @@
 body {
   font-family: var(--font-body);
 }
+
+@media (max-width: 639px) {
+  .specs-table thead {
+    display: none;
+  }
+
+  .specs-table tr {
+    display: block;
+    border-radius: 1rem;
+    border: 1px solid #c8d8c8;
+    background-color: #f4fdea;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .specs-table td {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.25rem 0;
+  }
+
+  .specs-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #a5b9a6;
+  }
+}

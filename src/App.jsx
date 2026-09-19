@@ -4,6 +4,7 @@ import ScrollToTop from './components/ScrollToTop'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ProductsPage from './pages/ProductsPage'
+import ProductCategoryPage from './pages/ProductCategoryPage'
 import ManufacturingPage from './pages/ManufacturingPage'
 import IndustriesPage from './pages/IndustriesPage'
 import ExportPage from './pages/ExportPage'
@@ -22,7 +23,10 @@ function App() {
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="products" element={<ProductsPage />} />
+          <Route path="products">
+            <Route index element={<ProductsPage />} />
+            <Route path=":slug" element={<ProductCategoryPage />} />
+          </Route>
           <Route path="manufacturing" element={<ManufacturingPage />} />
           <Route path="industries" element={<IndustriesPage />} />
           <Route path="export" element={<ExportPage />} />

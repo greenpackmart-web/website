@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Logo from '../assets/logo.svg'
-import { companyLinks, navLinks, site } from '../data/site'
+import { companyLinks, site } from '../data/site'
+import { productCategories } from '../data/products'
 
 function Footer() {
   return (
@@ -15,13 +16,16 @@ function Footer() {
 
         <div>
           <h3 className="font-heading text-sm font-bold uppercase tracking-widest text-sage">
-            Quick Links
+            Products
           </h3>
           <ul className="mt-4 space-y-2 text-sm">
-            {navLinks.map((link) => (
-              <li key={link.to}>
-                <Link to={link.to} className="text-cream/80 transition hover:text-cream">
-                  {link.label}
+            {productCategories.map((category) => (
+              <li key={category.slug}>
+                <Link
+                  to={`/products/${category.slug}`}
+                  className="text-cream/80 transition hover:text-cream"
+                >
+                  {category.name}
                 </Link>
               </li>
             ))}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { productCategories } from '../../data/products'
+import ProductImage from '../ProductImage'
 import SectionHeading from '../SectionHeading'
 
 function ProductCategories() {
@@ -16,12 +17,10 @@ function ProductCategories() {
           {productCategories.map((category) => (
             <Link
               key={category.slug}
-              to="/products"
+              to={`/products/${category.slug}`}
               className="group rounded-3xl border border-mist bg-cream p-6 transition hover:-translate-y-1 hover:border-leaf/60 hover:shadow-lg hover:shadow-forest/5"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-tint font-heading text-lg font-extrabold text-forest">
-                {category.name.charAt(0)}
-              </div>
+              <ProductImage name={category.name} image={category.image} />
               <h3 className="mt-4 font-heading text-lg font-bold text-forest transition group-hover:text-leaf">
                 {category.name}
               </h3>
