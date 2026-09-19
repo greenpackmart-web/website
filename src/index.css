@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #2d5832;
+  --color-pine: #213b23;
+  --color-leaf: #6ca857;
+  --color-sage: #a5b9a6;
+  --color-mist: #c8d8c8;
+  --color-cream: #f4fdea;
+  --color-tint: #e8f5d8;
+
+  --font-heading: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
