@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import PageHero from '../components/PageHero'
 import TextField from '../components/form/TextField'
+import SelectField from '../components/form/SelectField'
 import TextAreaField from '../components/form/TextAreaField'
 import CheckboxGroup from '../components/form/CheckboxGroup'
 import EnquiryFallback from '../components/form/EnquiryFallback'
 import MailtoSuccess from '../components/form/MailtoSuccess'
 import { productCategories } from '../data/products'
+import { countries } from '../data/countries'
 import { site } from '../data/site'
 
 const initialFields = {
@@ -129,12 +131,14 @@ function RequestSamplesPage() {
                     onChange={handleChange}
                     error={errors.company}
                   />
-                  <TextField
+                  <SelectField
                     label="Country"
                     name="country"
                     value={fields.country}
                     onChange={handleChange}
                     error={errors.country}
+                    options={countries}
+                    placeholder="Select a country"
                     required
                   />
                 </div>

@@ -16,7 +16,7 @@ async function fillValidForm(user) {
   await user.type(screen.getByLabelText(/your name/i), 'Maria Lopez')
   await user.type(screen.getByLabelText(/^email/i), 'maria@buyfood.com')
   await user.type(screen.getByLabelText(/company/i), 'BuyFood Inc')
-  await user.type(screen.getByLabelText(/^country/i), 'Spain')
+  await user.selectOptions(screen.getByLabelText(/^country/i), 'Spain')
   await user.type(
     screen.getByLabelText(/shipping address/i),
     'Calle Verde 5, Madrid'

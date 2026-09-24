@@ -6,6 +6,7 @@ import TextAreaField from '../components/form/TextAreaField'
 import EnquiryFallback from '../components/form/EnquiryFallback'
 import MailtoSuccess from '../components/form/MailtoSuccess'
 import { productCategories } from '../data/products'
+import { countries } from '../data/countries'
 import { site } from '../data/site'
 
 const initialFields = {
@@ -123,12 +124,14 @@ function GetQuotePage() {
                     onChange={handleChange}
                     error={errors.company}
                   />
-                  <TextField
+                  <SelectField
                     label="Destination country"
                     name="country"
                     value={fields.country}
                     onChange={handleChange}
                     error={errors.country}
+                    options={countries}
+                    placeholder="Select a country"
                     required
                   />
                   <SelectField
@@ -138,6 +141,7 @@ function GetQuotePage() {
                     onChange={handleChange}
                     error={errors.category}
                     options={categoryNames}
+                    placeholder="Select a category"
                     required
                   />
                   <TextField
