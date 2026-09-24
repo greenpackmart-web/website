@@ -26,7 +26,7 @@ function FaqPage() {
             Email us anything — we answer within one business day.
           </p>
           <a
-            href={`mailto:${site.email}?subject=${encodeURIComponent('Question about GreenPackMart')}`}
+            href={`mailto:${site.email}?subject=${encodeURIComponent('Question about GreenpackMart')}`}
             className="mt-6 inline-block rounded-full bg-leaf px-8 py-3 font-heading font-semibold text-white shadow-lg shadow-leaf/30 transition hover:bg-forest"
           >
             {site.email}

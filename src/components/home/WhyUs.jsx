@@ -6,7 +6,7 @@ function WhyUs() {
     <section className="bg-tint/50">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <SectionHeading
-          eyebrow="Why GreenPackMart"
+          eyebrow="Why GreenpackMart"
           title="Built for buyers who care what happens after the meal"
         />
 

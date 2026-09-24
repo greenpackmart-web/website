@@ -1,7 +1,7 @@
 export const heroContent = {
   eyebrow: 'Manufacturer & Exporter from India',
   subtext:
-    'GreenPackMart manufactures biodegradable tableware and bags from natural plant materials — exported from India to businesses worldwide.',
+    'GreenpackMart manufactures biodegradable tableware and bags from natural plant materials — exported from India to businesses worldwide.',
   primaryCta: { label: 'Get a Quote', to: '/get-quote' },
   secondaryCta: { label: 'Browse Products', to: '/products' },
 }

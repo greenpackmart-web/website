@@ -2,7 +2,7 @@ import { site } from '../../data/site'
 
 function EnquiryFallback({ subject }) {
   const message = encodeURIComponent(
-    'Hello GreenPackMart, I would like to discuss an order.'
+    'Hello GreenpackMart, I would like to discuss an order.'
   )
 
   return (

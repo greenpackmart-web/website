@@ -16,7 +16,7 @@ const sections = [
   },
   {
     title: 'Intellectual property',
-    text: 'All content on this website — text, logo and design — belongs to GreenPackMart and may not be copied for commercial use without permission.',
+    text: 'All content on this website — text, logo and design — belongs to GreenpackMart and may not be copied for commercial use without permission.',
   },
   {
     title: 'Limitation of liability',

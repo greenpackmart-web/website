@@ -1,6 +1,6 @@
 export const about = {
   story: [
-    'GreenPackMart started with a simple observation: the world runs on disposable tableware and packaging, but the material it runs on — plastic — stays in the ground and the ocean for centuries. India grows the raw materials for a better alternative in abundance, and we built a business around bringing them to the world.',
+    'GreenpackMart started with a simple observation: the world runs on disposable tableware and packaging, but the material it runs on — plastic — stays in the ground and the ocean for centuries. India grows the raw materials for a better alternative in abundance, and we built a business around bringing them to the world.',
     'Today we manufacture and export biodegradable tableware and bags to wholesale buyers across multiple countries — hotels, caterers, retailers and distributors who want products that perform like plastic and disappear like leaves.',
   ],
   facts: [

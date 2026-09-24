@@ -1,5 +1,5 @@
 export const site = {
-  name: 'GreenPackMart',
+  name: 'GreenpackMart',
   tagline:
     'Eco-friendly biodegradable tableware and bags, exported from India to the world',
   email: 'greenpackmart@gmail.com',
