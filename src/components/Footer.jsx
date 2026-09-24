@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Logo from '../assets/logo.svg'
+import Logo from '../assets/logo-white.svg'
 import { companyLinks, site } from '../data/site'
 import { productCategories } from '../data/products'
 

@@ -37,8 +37,8 @@ function Hero() {
           <div className="absolute inset-0 rounded-full bg-tint blur-3xl" />
           <div className="absolute right-6 top-8 h-40 w-40 rounded-full bg-mist/60 blur-3xl" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex h-36 w-72 items-center justify-center rounded-[2.5rem] bg-white px-8 shadow-xl shadow-forest/10">
-              <img src={Logo} alt="GreenPackMart logo" className="h-20 w-auto" />
+            <div className="flex h-36 items-center justify-center rounded-[2.5rem] bg-white px-10 shadow-xl shadow-forest/10">
+              <img src={Logo} alt="GreenPackMart logo" className="h-16 w-auto" />
             </div>
           </div>
           <div className="absolute left-0 top-6 rounded-full border border-mist bg-white px-4 py-2 text-xs font-semibold text-forest shadow-md">
