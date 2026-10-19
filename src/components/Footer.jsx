@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import Logo from '../assets/logo-white.svg'
+import InstagramLogo from '../assets/instagram.svg'
+import FacebookLogo from '../assets/facebook.svg'
 import { companyLinks, site } from '../data/site'
 import { productCategories } from '../data/products'
 
@@ -77,6 +79,30 @@ function Footer() {
               </Link>
             </li>
           </ul>
+
+          <div className="mt-6">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-sage">
+              Follow us
+            </h4>
+            <div className="mt-3 flex gap-3">
+              <span
+                role="img"
+                aria-label="Instagram (coming soon)"
+                title="Instagram coming soon"
+                className="inline-flex items-center justify-center"
+              >
+                <img src={InstagramLogo} alt="" className="h-8 w-8" />
+              </span>
+              <span
+                role="img"
+                aria-label="Facebook (coming soon)"
+                title="Facebook coming soon"
+                className="inline-flex items-center justify-center text-[#1877f2]"
+              >
+                <img src={FacebookLogo} alt="" className="h-8 w-8" />
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
