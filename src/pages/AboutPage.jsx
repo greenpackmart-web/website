@@ -23,7 +23,7 @@ function AboutPage() {
       </section>
 
       <section className="bg-cream">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-12 sm:px-6 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-3xl grid-cols-2 gap-6 px-4 py-12 sm:px-6">
           {about.facts.map((fact) => (
             <div
               key={fact.label}

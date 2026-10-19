@@ -4,10 +4,8 @@ export const about = {
     'Today we manufacture and export biodegradable tableware and bags to wholesale buyers across multiple countries — hotels, caterers, retailers and distributors who want products that perform like plastic and disappear like leaves.',
   ],
   facts: [
-    { value: '2020', label: 'Founded' },
+    { value: '2026', label: 'Founded' },
     { value: 'India', label: 'Manufacturing base' },
-    { value: '25+', label: 'Team members' },
-    { value: '12+', label: 'Export countries' },
   ],
   values: [
     {
