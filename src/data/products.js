@@ -1,7 +1,7 @@
 export const productCategories = [
   {
     slug: 'round-plates',
-    image: null,
+    image: 'images/products/round-plates.webp',
     name: 'Round Plates',
     blurb: 'Biodegradable round plates for everyday meals, events and catering.',
     description:
@@ -21,7 +21,7 @@ export const productCategories = [
   },
   {
     slug: 'square-rect-plates',
-    image: null,
+    image: 'images/products/square-rect-plates.webp',
     name: 'Square & Rectangle Plates',
     blurb: 'Clean-edged plates for modern plating and portion presentation.',
     description:
@@ -44,7 +44,7 @@ export const productCategories = [
   },
   {
     slug: 'bowls',
-    image: null,
+    image: 'images/products/bowls.webp',
     name: 'Bowls',
     blurb: 'Sturdy bowls for soups, curries, salads and desserts.',
     description:
@@ -68,7 +68,8 @@ export const productCategories = [
   },
   {
     slug: 'trays',
-    image: null,
+    image: 'images/products/meal-tray.webp',
+    additionalImages: ['images/products/food-tray.webp'],
     name: 'Trays & Meal Trays',
     blurb: 'Multi-compartment trays for canteens, airlines and food courts.',
     description:
@@ -99,7 +100,7 @@ export const productCategories = [
   },
   {
     slug: 'clamshells',
-    image: null,
+    image: 'images/products/clamshells.webp',
     name: 'Clamshells & Containers',
     blurb: 'Leak-resistant takeaway boxes for delivery and packaging.',
     description:
@@ -126,7 +127,7 @@ export const productCategories = [
   },
   {
     slug: 'cutlery',
-    image: null,
+    image: 'images/products/cutlery.webp',
     name: 'Cutlery',
     blurb: 'Compostable spoons, forks and stirrers that hold up to hot food.',
     description:
@@ -146,7 +147,7 @@ export const productCategories = [
   },
   {
     slug: 'bags',
-    image: null,
+    image: 'images/products/bags.webp',
     name: 'Eco Bags',
     blurb: 'Biodegradable carry bags for retail, grocery and gifting.',
     description:

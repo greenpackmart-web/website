@@ -11,7 +11,10 @@ describe('ProductImage', () => {
   test('shows the photo when an image path is set', () => {
     render(<ProductImage name="Bowls" image="/images/products/bowls.jpg" />)
     const img = screen.getByRole('img', { name: 'Bowls' })
-    expect(img).toHaveAttribute('src', '/images/products/bowls.jpg')
+    expect(img).toHaveAttribute(
+      'src',
+      `${import.meta.env.BASE_URL}images/products/bowls.jpg`
+    )
     expect(img).toHaveAttribute('alt', 'Bowls')
   })
 })

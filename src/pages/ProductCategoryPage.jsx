@@ -12,6 +12,8 @@ function ProductCategoryPage() {
     return <NotFoundPage />
   }
 
+  const galleryImages = [category.image, ...(category.additionalImages ?? [])]
+
   const enquiry = {
     subject: encodeURIComponent(`Bulk enquiry: ${category.name}`),
     body: encodeURIComponent(
@@ -41,8 +43,18 @@ function ProductCategoryPage() {
         </nav>
 
         <header className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center">
-          <div className="w-40 shrink-0 sm:w-52">
-            <ProductImage name={category.name} image={category.image} />
+          <div
+            className={`grid w-40 shrink-0 gap-3 sm:w-52 ${
+              galleryImages.length > 1 ? 'grid-cols-2' : 'grid-cols-1'
+            }`}
+          >
+            {galleryImages.map((image, index) => (
+              <ProductImage
+                key={image}
+                name={index === 0 ? category.name : `${category.name} alternate view`}
+                image={image}
+              />
+            ))}
           </div>
           <div>
             <h1 className="font-heading text-3xl font-extrabold text-forest sm:text-4xl">
