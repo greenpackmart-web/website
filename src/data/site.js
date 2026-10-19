@@ -3,7 +3,6 @@ export const site = {
   tagline:
     'Eco-friendly biodegradable tableware and bags, exported from India to the world',
   email: 'greenpackmart@gmail.com',
-  whatsapp: '919000000000',
 }
 
 export const navLinks = [
