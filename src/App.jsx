@@ -6,8 +6,6 @@ import AboutPage from './pages/AboutPage'
 import ProductsPage from './pages/ProductsPage'
 import ProductCategoryPage from './pages/ProductCategoryPage'
 import ManufacturingPage from './pages/ManufacturingPage'
-import IndustriesPage from './pages/IndustriesPage'
-import ExportPage from './pages/ExportPage'
 import FaqPage from './pages/FaqPage'
 import GetQuotePage from './pages/GetQuotePage'
 import RequestSamplesPage from './pages/RequestSamplesPage'
@@ -28,8 +26,6 @@ function App() {
             <Route path=":slug" element={<ProductCategoryPage />} />
           </Route>
           <Route path="manufacturing" element={<ManufacturingPage />} />
-          <Route path="industries" element={<IndustriesPage />} />
-          <Route path="export" element={<ExportPage />} />
           <Route path="faq" element={<FaqPage />} />
           <Route path="get-quote" element={<GetQuotePage />} />
           <Route path="request-samples" element={<RequestSamplesPage />} />

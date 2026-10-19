@@ -18,7 +18,6 @@ describe('Navbar', () => {
       screen.getByRole('img', { name: /greenpackmart logo/i })
     ).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Products' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Export' })).toBeInTheDocument()
   })
 
   test('starts with the mobile menu closed', () => {

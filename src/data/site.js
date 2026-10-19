@@ -11,15 +11,11 @@ export const navLinks = [
   { label: 'About', to: '/about' },
   { label: 'Products', to: '/products' },
   { label: 'Manufacturing', to: '/manufacturing' },
-  { label: 'Industries', to: '/industries' },
-  { label: 'Export', to: '/export' },
   { label: 'FAQ', to: '/faq' },
 ]
 
 export const companyLinks = [
   { label: 'About Us', to: '/about' },
   { label: 'Manufacturing', to: '/manufacturing' },
-  { label: 'Industries We Serve', to: '/industries' },
-  { label: 'Export', to: '/export' },
   { label: 'FAQ', to: '/faq' },
 ]
