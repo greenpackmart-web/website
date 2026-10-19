@@ -7,8 +7,6 @@ export const heroContent = {
 }
 
 export const stats = [
-  { value: '12+', label: 'Export countries' },
-  { value: '40+', label: 'Product variants' },
   { value: '90', label: 'Days to fully compost' },
   { value: '100%', label: 'Plastic-free' },
 ]

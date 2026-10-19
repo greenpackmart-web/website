@@ -26,12 +26,12 @@ describe('HomePage', () => {
     ).toBeInTheDocument()
   })
 
-  test('shows all four stats', () => {
+  test('shows only the composting and plastic-free stats', () => {
     renderHomePage()
-    expect(screen.getByText('12+')).toBeInTheDocument()
-    expect(screen.getByText('40+')).toBeInTheDocument()
     expect(screen.getByText('90')).toBeInTheDocument()
     expect(screen.getByText('100%')).toBeInTheDocument()
+    expect(screen.queryByText('12+')).not.toBeInTheDocument()
+    expect(screen.queryByText('40+')).not.toBeInTheDocument()
   })
 
   test('lists all product categories plus the full catalogue card', () => {
