@@ -37,7 +37,7 @@ describe('HomePage', () => {
   test('lists all product categories plus the full catalogue card', () => {
     renderHomePage()
     expect(screen.getByText('Round Plates')).toBeInTheDocument()
-    expect(screen.getByText('Eco Bags')).toBeInTheDocument()
+    expect(screen.getByText('Disposable Glasses')).toBeInTheDocument()
     expect(screen.getByText('Full Catalogue')).toBeInTheDocument()
   })
 })

@@ -23,18 +23,23 @@ describe('ProductCategoryPage', () => {
   })
 
   test('pre-fills the enquiry email with the category name', () => {
-    renderAt('/products/bags')
+    renderAt('/products/disposable-glasses')
     const mailto = screen.getByRole('link', {
-      name: /email us about eco bags/i,
+      name: /email us about disposable glasses/i,
     })
     expect(mailto).toHaveAttribute(
       'href',
-      expect.stringContaining('Bulk%20enquiry%3A%20Eco%20Bags')
+      expect.stringContaining('Bulk%20enquiry%3A%20Disposable%20Glasses')
     )
   })
 
   test('shows the 404 page for an unknown slug', () => {
     renderAt('/products/not-a-real-product')
+    expect(screen.getByText('Page not found')).toBeInTheDocument()
+  })
+
+  test('shows the 404 page for the removed bags category', () => {
+    renderAt('/products/bags')
     expect(screen.getByText('Page not found')).toBeInTheDocument()
   })
 })

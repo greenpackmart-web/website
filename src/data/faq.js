@@ -12,7 +12,7 @@ export const faqs = [
   {
     question: 'Can we print our own logo on the products?',
     answer:
-      'Yes — private-label printing is available on most products, including bags, clamshell lids and plates. Share your logo and target quantity for a branding quote.',
+      'Yes — private-label printing is available on selected products, including clamshell lids and plates. Share your logo and target quantity for a branding quote.',
   },
   {
     question: 'Which countries do you export to?',

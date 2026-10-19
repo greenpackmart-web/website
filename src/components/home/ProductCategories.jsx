@@ -10,7 +10,7 @@ function ProductCategories() {
         <SectionHeading
           eyebrow="Product Range"
           title="One supplier, every eco product you need"
-          text="Tableware and bags made from natural plant materials — all compostable, all export-grade."
+          text="Tableware and disposable glasses made from natural plant materials — all compostable, all export-grade."
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

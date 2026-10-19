@@ -9,7 +9,7 @@ function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="A business built around what happens after the meal"
-        text="We make tableware and bags that do their job perfectly — then return to the earth instead of outliving it."
+        text="We make tableware and disposable glasses that do their job perfectly — then return to the earth instead of outliving it."
       />
 
       <section className="bg-white">

@@ -22,7 +22,7 @@ async function fillValidForm(user) {
     'Calle Verde 5, Madrid'
   )
   await user.click(screen.getByText('Bowls'))
-  await user.click(screen.getByText('Eco Bags'))
+  await user.click(screen.getByText('Disposable Glasses'))
 }
 
 function stubClipboard() {
@@ -71,7 +71,7 @@ describe('RequestSamplesPage', () => {
     const reopen = screen.getByRole('link', { name: /open the email again/i })
     expect(reopen).toHaveAttribute(
       'href',
-      expect.stringContaining('Bowls%2C%20Eco%20Bags')
+      expect.stringContaining('Bowls%2C%20Disposable%20Glasses')
     )
   })
 
@@ -87,7 +87,7 @@ describe('RequestSamplesPage', () => {
     await user.click(screen.getByRole('button', { name: /copy message text/i }))
 
     expect(writeText).toHaveBeenCalledWith(
-      expect.stringContaining('Categories of interest: Bowls, Eco Bags')
+      expect.stringContaining('Categories of interest: Bowls, Disposable Glasses')
     )
   })
 })

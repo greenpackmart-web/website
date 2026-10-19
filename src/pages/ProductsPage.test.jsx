@@ -13,6 +13,6 @@ describe('ProductsPage', () => {
     expect(screen.getByText('Bowls')).toBeInTheDocument()
     expect(screen.getByText('Trays & Meal Trays')).toBeInTheDocument()
     expect(screen.getByText('Cutlery')).toBeInTheDocument()
-    expect(screen.getByText('Eco Bags')).toBeInTheDocument()
+    expect(screen.getByText('Disposable Glasses')).toBeInTheDocument()
   })
 })
