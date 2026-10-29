@@ -14,5 +14,7 @@ describe('ProductsPage', () => {
     expect(screen.getByText('Trays & Meal Trays')).toBeInTheDocument()
     expect(screen.getByText('Cutlery')).toBeInTheDocument()
     expect(screen.getByText('Disposable Glasses')).toBeInTheDocument()
+    expect(screen.getByText('Bamboo Kitchen Towel')).toBeInTheDocument()
+    expect(screen.getByText('Bamboo Facial Tissue')).toBeInTheDocument()
   })
 })

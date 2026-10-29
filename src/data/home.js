@@ -1,7 +1,7 @@
 export const heroContent = {
   eyebrow: 'Manufacturer & Exporter from India',
   subtext:
-    'GreenpackMart manufactures biodegradable tableware and bagasse disposable glasses — exported from India to businesses worldwide.',
+    'GreenpackMart supplies biodegradable tableware, bagasse disposable glasses and bamboo essentials — exported from India to businesses worldwide.',
   primaryCta: { label: 'Get a Quote', to: '/get-quote' },
   secondaryCta: { label: 'Browse Products', to: '/products' },
 }

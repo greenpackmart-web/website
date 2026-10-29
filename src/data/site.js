@@ -1,7 +1,7 @@
 export const site = {
   name: 'GreenpackMart',
   tagline:
-    'Eco-friendly biodegradable tableware and bagasse disposable glasses, exported from India to the world',
+    'Biodegradable tableware, bagasse disposable glasses and bamboo essentials, exported from India to the world',
   email: 'greenpackmart@gmail.com',
 }
 

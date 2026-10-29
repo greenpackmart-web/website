@@ -181,4 +181,48 @@ export const productCategories = [
       },
     ],
   },
+  {
+    slug: 'bamboo-kitchen-towel',
+    image: 'images/products/bamboo-kitchen-towel.webp',
+    name: 'Bamboo Kitchen Towel',
+    blurb:
+      'Bamboo kitchen towel rolls for cleaning, food-service and retail supply.',
+    description:
+      'Bamboo kitchen towel rolls for commercial kitchens, food-service operations and retail programmes. Add them to your GreenpackMart enquiry when you need bamboo-based paper products alongside tableware and other food-service essentials.',
+    features: [
+      'Made from bamboo material',
+      'Supplied as kitchen towel rolls',
+      'Suitable for wholesale enquiries',
+      'Specifications available on request',
+    ],
+    specs: [
+      {
+        variant: 'Kitchen towel roll',
+        packing: 'Contact us for specifications',
+        moq: 'Contact us for specifications',
+      },
+    ],
+  },
+  {
+    slug: 'bamboo-facial-tissue',
+    image: 'images/products/bamboo-facial-tissue.webp',
+    name: 'Bamboo Facial Tissue',
+    blurb:
+      'Bamboo facial tissues for hospitality, retail and personal-care supply.',
+    description:
+      'Bamboo facial tissue packs for hotels, offices, retailers and personal-care supply. Available for buyers looking to source bamboo-based tissue products alongside biodegradable food-service products from one export-focused supplier.',
+    features: [
+      'Made from bamboo material',
+      'Supplied as facial tissue packs',
+      'Suitable for hospitality and retail enquiries',
+      'Specifications available on request',
+    ],
+    specs: [
+      {
+        variant: 'Facial tissue pack',
+        packing: 'Contact us for specifications',
+        moq: 'Contact us for specifications',
+      },
+    ],
+  },
 ]

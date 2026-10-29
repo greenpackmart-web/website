@@ -7,9 +7,9 @@ const productionUrl = 'https://greenpackmart.com'
 
 const pageMetadata = {
   '/': {
-    title: 'Bagasse Tableware & Disposable Glasses Manufacturer | GreenpackMart',
+    title: 'Bagasse Tableware, Glasses & Bamboo Essentials | GreenpackMart',
     description:
-      'GreenpackMart manufactures and exports biodegradable bagasse tableware and disposable glasses from India for wholesale buyers worldwide.',
+      'GreenpackMart supplies biodegradable bagasse tableware, disposable glasses and bamboo paper essentials from India for wholesale buyers worldwide.',
   },
   '/about/': {
     title: 'About GreenpackMart | Biodegradable Tableware Exporter',
@@ -17,9 +17,9 @@ const pageMetadata = {
       'Learn about GreenpackMart, an Indian manufacturer and exporter of biodegradable tableware and bagasse disposable glasses.',
   },
   '/products/': {
-    title: 'Bagasse Tableware & Disposable Glasses | GreenpackMart',
+    title: 'Bagasse Tableware, Glasses & Bamboo Essentials | GreenpackMart',
     description:
-      'Browse GreenpackMart’s biodegradable plates, bowls, trays, containers, cutlery and bagasse disposable glasses for wholesale export.',
+      'Browse GreenpackMart’s biodegradable plates, bowls, trays, containers, cutlery, bagasse disposable glasses and bamboo paper essentials for wholesale export.',
   },
   '/manufacturing/': {
     title: 'Bagasse Tableware Manufacturing | GreenpackMart',
