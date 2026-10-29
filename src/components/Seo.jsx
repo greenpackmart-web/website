@@ -86,7 +86,11 @@ function Seo() {
     const metadata = getMetadata(pathname)
     document.title = metadata.title
     setMeta('description', metadata.description)
-    setMeta('robots', metadata.noindex ? 'noindex, follow' : 'index, follow')
+    const isTestSite = import.meta.env.BASE_URL !== '/'
+    setMeta(
+      'robots',
+      isTestSite || metadata.noindex ? 'noindex, follow' : 'index, follow'
+    )
 
     const canonicalPath = pathname === '/' ? '/' : `${pathname.replace(/\/+$/, '')}/`
     let canonical = document.querySelector('link[rel="canonical"]')
